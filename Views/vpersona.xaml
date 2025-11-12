@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ksalazarS5Online.Views.vpersona"
+             Title="Gestión de Personas">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <Label 
+            Text="SEMANA 5: BASES DE DATOS LOCALES SQLITE"
+            FontSize="18"
+            TextColor="Blue"
+            HorizontalOptions="Center" />
+
+        <!-- Campo para ID -->
+        <Entry x:Name="txtId"
+               Placeholder="Ingrese el ID (para actualizar o eliminar)"
+               Keyboard="Numeric"/>
+
+        <!-- Campo para Nombre -->
+        <Entry x:Name="txtNombre"
+               Placeholder="Ingrese el nombre"/>
+
+        <!-- Botones -->
+        <Button x:Name="btnAgregar"
+                Text="Agregar Persona"
+                Clicked="btnAgregar_Clicked"/>
+
+        <Button x:Name="btnListar"
+                Text="Listar Personas"
+                Clicked="btnListar_Clicked"/>
+
+        <Button x:Name="btnActualizar"
+                Text="Actualizar Persona"
+                BackgroundColor="LightBlue"
+                Clicked="btnActualizar_Clicked"/>
+
+        <Button x:Name="btnEliminar"
+                Text="Eliminar Persona"
+                BackgroundColor="IndianRed"
+                TextColor="White"
+                Clicked="btnEliminar_Clicked"/>
+
+        <Label x:Name="lblMensaje"
+               TextColor="DarkBlue"
+               FontAttributes="Bold"/>
+
+        <!-- Lista -->
+        <CollectionView x:Name="listaPersonas">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding Id}" Grid.Column="0"/>
+                        <Label Text="{Binding Nombre}" Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
